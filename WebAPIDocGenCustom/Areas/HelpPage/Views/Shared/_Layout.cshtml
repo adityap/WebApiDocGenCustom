@@ -1,0 +1,33 @@
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+</head>
+<body>
+    <header>
+        <img src="~/Images/png/logo_vh_white.png" alt="VH Logo"/><h1>API Documentation</h1>
+    </header>
+        
+    <div id="container" class="container">
+        @RenderBody()
+    </div>
+        
+    <footer>
+        <p>Sample Legal Line - © 2013 Verisk Health Inc. | All rights reserved. | Best viwed in latest browsers.</p>
+    </footer>
+
+    @RenderSection("scripts", required: false)
+    <script>
+        $(window).resize(function() {
+            $('#container').height($(window).height() - 90);
+        });
+        $(window).trigger('resize');
+    </script>
+</body>
+</html>

@@ -1,0 +1,302 @@
+pre.wrapped {
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    white-space: pre-wrap;
+    color: #FFFF66;
+}
+
+.warning-message-container {
+    margin-top: 20px;
+    padding: 0 10px;
+    color: #BC4676;/*C13100*/
+    background: #E8D0A9; 
+    border: 1px solid #B7AFA3;
+    font-size: 12px;
+}
+
+.help-page-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    margin: 0px 0px 20px 0px;
+    /*border-top: 2px solid #D4D4D4;*/
+}
+
+.help-page-table th {
+    text-align: left;
+    font-weight: bold;
+    /*border-bottom: 2px solid #D4D4D4;*/
+    padding: 8px 6px 8px 6px;
+}
+
+.help-page-table td {
+    /*border-bottom: 2px solid #D4D4D4;*/
+    padding: 15px 8px 15px 8px;
+    vertical-align: top;
+}
+
+.help-page-table pre, .help-page-table p {
+    margin: 0px;
+    padding: 0px;
+    font-family: inherit;
+    font-size: 100%;
+}
+
+.help-page-table tbody tr:hover td {
+    /*background-color: #F3F3F3;*/
+}
+
+a:hover {
+    background-color: transparent;
+}
+
+.sample-header {
+    /*border: 2px solid #D4D4D4;*/
+    background: #B7AFA3;
+    color: #F6F6F6;
+    padding: 3px 8px;
+    border-bottom: none;
+    display: inline-block;
+    margin: 5px 0px 0px 0px;
+    font-size: 14px;
+}
+
+.sample-content {
+    display: block;
+    border-width: 0;
+    padding: 15px 20px;
+    /*background: #FFFFFF;*/
+    border: 1px solid #B8B9BB;
+    margin: 0px 0px 5px 0px;
+}
+
+.api-name {
+    width: 40%;
+}
+
+.api-documentation {
+    width: 60%;
+}
+
+.parameter-name {
+    width: 20%;
+}
+
+.parameter-documentation {
+    width: 50%;
+}
+
+.parameter-source {
+    width: 30%;
+}
+
+/*Start: Help Content Layout*/
+.main {
+    /*min-height: 500px;*/
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-flow: row;
+   flex-flow: row;    
+}
+
+.main .apiList {
+    /*padding-left: 10px;
+    background-color: #F5FAFA;
+    border: 1px solid black;
+    width: 40%;
+    display: inline-block;*/
+       /*margin: 4px;*/
+   padding: 5px;
+   /*border: 1px solid #cccc33;*/
+   /*border-radius: 7pt;*/
+   background: #F5FAFA;
+   -webkit-flex: 3 1 30%;
+           flex: 3 1 30%;
+   -webkit-order: 2;
+           order: 2;
+}
+
+.main .apiDetails {
+    /*width: 35%;
+    float: right;
+    background-color: #6D929B;
+    padding: 2px;*/
+    color: whitesmoke;
+       /*margin: 4px;*/
+   padding: 5px;
+   /*border: 1px solid #8888bb;*/
+   /*border-radius: 7pt;*/
+   background: #6D929B;
+   -webkit-flex: 1 6 50%;
+           flex: 1 6 50%;
+   -webkit-order: 3;
+           order: 3;
+}
+.main .apiDetails h1 {
+    font-size: 24px;
+    font-weight: 500;
+    color: inherit;
+    padding-bottom: 2px;
+    border-bottom: 2px #E8D0A9 ridge;
+    
+}
+
+.main .apiDetails h2 {
+    font-size: 20px;
+    font-weight: 500;
+    color: inherit;
+    padding-bottom: 2px;
+    border-bottom: 1px #E8D0A9 solid;
+}
+
+.main .apiDetails h3 {
+    font-size: 16px;
+    font-weight: 500;
+    padding-bottom: 1px;
+    color: inherit;
+}
+
+.main .apiDetails table {
+    color: inherit;
+    font-size: 12px;
+    /*border: 1px solid #B8B9BB;*/
+}
+
+.main .apiDetails table th {
+    text-align: left;
+    font-weight: 500;
+    padding: 5px 6px 5px 6px;
+}
+
+.main .apiDetails table td{
+    color: inherit;
+    font-size: 12px;
+    padding-bottom: 0;
+    font-weight: normal;
+    padding: 5px 10px 5px 10px;
+    vertical-align: top;
+}
+
+
+.main .apiNav {
+    /*width: 15%; 
+    float: left;
+    background-color: #F6F6F6;*/
+
+       /*margin: 4px;*/
+   padding-left: 1px;
+   /*border: 1px solid #8888bb;*/
+   /*border-radius: 7pt;*/
+   background: #F6F6F6;
+   -webkit-flex: 1 6 10%;
+           flex: 1 6 10%;
+   -webkit-order: 1;
+           order: 1;
+}
+.apiNav ul {
+    margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.apiNav ul li {
+	width: 100%;
+	clear:left; /* clear contents of inner span, which will be floated left */
+	overflow: hidden; /* clear contents of inner span, which will be floated left */
+    padding-left: 2px;
+}
+
+.apiNav ul li:first-child {
+    margin: 1px 0px 5px 0px;
+    font-size: large;
+    font-weight: bold;
+	background: #525564;
+    color: #fff;
+	border-left: 10px solid #96C0CE;
+    width: 95%;
+}
+
+.apiNav ul li span{
+	display: block;
+	float: left; /* cause width of each span to take up only as much space as needed */
+	min-width: 0px; /* animated property. Explicit min-width defined so animation works. */
+	margin-bottom: 5px;
+	padding: 8px;
+	color: #5d5d5d;
+}
+
+.apiNav ul li:hover span{
+	color: #fff;
+	background: #96C0CE;
+	border-left: 8px solid #525564;
+    min-width: 80%; /* animated property. Set to desired final length of background */
+	-webkit-box-shadow: 0 0 5px gray;
+	-moz-box-shadow: 0 0 5px gray;
+	box-shadow: 0 0 5px gray;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+}
+
+/* Too narrow to support three columns */
+  @media all and (max-width: 640px) {
+  
+   .main {
+    -webkit-flex-flow: column;
+            flex-direction: column;
+   }
+
+   .main .apiNav, .main .apiList, .main .apiDetails {
+    /* Return them to document order */
+    -webkit-order: 0;
+            order: 0;
+   }
+  
+   .main .apiNav, .main .apiList, .main .apiDetails {
+    min-height: 50px;
+    max-height: 50px;
+   }
+  }
+/*End: Help Content Layout*/
+/*Start: HTTP Method Styling*/
+.httpMethod {
+    border-radius: 20px;
+    -moz-border-radius: 20px; 
+    -webkit-border-radius: 20px; 
+    padding: 2px 10px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.httpMethod.get {
+    background-color: #44c7f4;
+    margin-right: 21px;
+}
+.httpMethod.post {
+    background: #01b48f;
+    margin-right: 13px;
+}
+
+.httpMethod.delete {
+    background: red;
+    margin-right: 3px;
+}
+
+.httpMethod.patch {
+    background: #ff9a57;
+    margin-right: 13px;
+}
+
+.httpMethod.put {
+    background: #c5862b;
+    margin-right: 20px;
+}
+.apiPath {
+    font-size: 13px;
+    
+}
+/*End: HTTP Method Styling*/

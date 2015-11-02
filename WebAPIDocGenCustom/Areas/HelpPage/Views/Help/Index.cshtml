@@ -1,0 +1,48 @@
+@using System.Configuration
+@using System.Web.Http
+@using System.Web.Http.Description
+@using System.Collections.ObjectModel
+@using System.Web.Optimization
+@using WebAPIDocGenCustom.Areas.HelpPage.Models
+@model Collection<ApiDescription>
+
+@{
+    ViewBag.Title = "ASP.NET Web API Help Page";
+
+    // Group APIs by controller
+    ILookup<string, ApiDescription> apiGroups = Model.ToLookup(api => api.ActionDescriptor.ControllerDescriptor.ControllerName);
+}
+
+<div class="main">
+    <nav class="apiNav">
+        <ul>
+            <li>API Reference</li>
+            @foreach (var group in apiGroups)
+            {
+                <li><a id="nav-@(group.Key)" href="#@(group.Key)"><span>@group.Key</span></a></li>
+            }
+        </ul>
+    </nav>
+    <section class="apiList">
+        @foreach (var group in apiGroups)
+        {
+            @Html.DisplayFor(m => group, "ApiGroup")
+        }
+    </section>
+    <section class="apiDetails">
+        <div id="apiDetailsContent">
+
+        </div>
+    </section>
+</div>
+<script>
+    function handleApiActionClick(e, id) {
+        e.preventDefault();
+        var selectedHref = $('#' + id).attr("href");
+        $.get(selectedHref, function (data) {
+
+            $('#apiDetailsContent').html(data);
+            $('#apiDetailsContent').fadeIn('fast');
+        });
+    }
+</script>

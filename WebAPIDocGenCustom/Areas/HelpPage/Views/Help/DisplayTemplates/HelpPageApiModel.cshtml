@@ -1,0 +1,43 @@
+@using System.Web.Http
+@using WebAPIDocGenCustom.Areas.HelpPage.Models
+@model HelpPageApiModel
+
+@{ 
+    var description = Model.ApiDescription;
+    bool hasParameters = description.ParameterDescriptions.Count > 0;
+    bool hasRequestSamples = Model.SampleRequests.Count > 0;
+    bool hasResponseSamples = Model.SampleResponses.Count > 0;
+}
+<h2><span>@description.HttpMethod.Method</span> @description.RelativePath</h2>
+<div>
+    @if (description.Documentation != null)
+    {
+        <p>@description.Documentation</p>
+    }
+    else
+    {
+        <p>No documentation available.</p>
+    }
+
+    @if (hasParameters || hasRequestSamples)
+    {
+        <h3>Request Information</h3>
+        if (hasParameters)
+        {
+            <h4>Parameters</h4>
+            @Html.DisplayFor(apiModel => apiModel.ApiDescription.ParameterDescriptions, "Parameters")
+        }
+        if (hasRequestSamples)
+        {
+            <h4>Request body formats</h4>
+            @Html.DisplayFor(apiModel => apiModel.SampleRequests, "Samples")
+        }
+    } 
+
+    @if (hasResponseSamples)
+    {
+        <h3>Response Information</h3> 
+        <h4>Response body formats</h4>
+        @Html.DisplayFor(apiModel => apiModel.SampleResponses, "Samples")
+    }
+</div>
